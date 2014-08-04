@@ -1,0 +1,39 @@
+Name        : libinput
+Version     : 0.5.0
+Release     : 1
+Group       : System/Libraries
+License     : MIT
+Summary     : Input device library
+Description : |
+  libinput is a library that handles input devices for display servers and other
+  applications that need to directly deal with input devices.
+
+  It provides device detection, device handling, input device event processing
+  and abstraction so minimize the amount of custom input code the user of
+  libinput need to provide the common set of functionality that users expect.
+URL         : http://www.freedesktop.org/wiki/Software/libinput/
+Sources     :
+    - "%{name}-%{version}.tar.xz"
+SetupOptions: -q -n %{name}-%{version}/upstream
+
+PkgBR:
+    - libevdev-devel
+PkgConfigBR:
+    - libudev
+    - mtdev
+
+Files:
+    - "%doc COPYING"
+    - "%{_libdir}/libinput.so.*"
+
+SubPackages:
+    - Name: devel
+      Group: Development/Libraries
+      Summary: Development files for %{name}
+      Description: |
+        The %{name}-devel package contains the files necessary to develop applications |
+        that use %{name}.
+      Files:
+          - "%{_includedir}/libinput.h"
+          - "%{_libdir}/libinput.so"
+          - "%{_libdir}/pkgconfig/libinput.pc"
