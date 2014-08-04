@@ -22,6 +22,8 @@ PkgConfigBR:
     - libudev
     - mtdev
 
+Configure: reconfigure
+
 Files:
     - "%doc COPYING"
     - "%{_libdir}/libinput.so.*"

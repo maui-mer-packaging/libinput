@@ -51,7 +51,7 @@ that use %{name}.
 # >> build pre
 # << build pre
 
-%configure --disable-static
+%reconfigure --disable-static
 make %{?_smp_mflags}
 
 # >> build post
